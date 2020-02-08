@@ -37,4 +37,15 @@ describe('ord', () => {
             expect(actual3).toBe(true);
         })
     });
+
+    describe("a['fantasy-land/lte'](b) or b['fantasy-land/lte'](a) (totality)", () => {
+        it('should give true for either a > b or b > a', () => {
+            const ord63 = ord(63);
+            const ord97 = ord(97);
+
+            const actual = ord63['fantasy-land/lte'](ord97) || ord97['fantasy-land/lte'](ord63);
+
+            expect(actual).toBe(true);
+        });
+    });
 });
