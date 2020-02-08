@@ -1,1 +1,1 @@
-export const lte = (value) => (ord) => value >= ord.value;
+export const lte = (value) => (ord) => value <= ord.value;
