@@ -1,0 +1,1 @@
+export const EQUALS = 'fantasy-land/equals';
