@@ -39,13 +39,28 @@ describe('ord', () => {
     });
 
     describe("a['fantasy-land/lte'](b) or b['fantasy-land/lte'](a) (totality)", () => {
-        it('should give true for either a > b or b > a', () => {
+        it('should give true for either a >= b or b >= a', () => {
             const ord63 = ord(63);
             const ord97 = ord(97);
 
             const actual = ord63['fantasy-land/lte'](ord97) || ord97['fantasy-land/lte'](ord63);
 
             expect(actual).toBe(true);
+        });
+    });
+
+    describe("if a['fantasy-land/lte'](b) and b['fantasy-land/lte'](a), then a['fantasy-land/equals'](b) (antisymmetry)", () => {
+        it('should be equal if both a >= b and b >= a', () => {
+            const ord63a = ord(63);
+            const ord63b = ord(63);
+
+            const actual1 = ord63a['fantasy-land/lte'](ord63b);
+            const actual2 = ord63b['fantasy-land/lte'](ord63a);
+            const actual3 = ord63a['fantasy-land/equals'](ord63b);
+
+            expect(actual1).toBe(true);
+            expect(actual2).toBe(true);
+            expect(actual3).toBe(true);
         });
     });
 });
