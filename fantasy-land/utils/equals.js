@@ -1,1 +1,1 @@
-export const equals = (value1) => (value2) => value1 === value2.value;
+export const equals = (value) => (setoid) => value === setoid.value;
