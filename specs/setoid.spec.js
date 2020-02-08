@@ -62,4 +62,20 @@ describe('setoid', () => {
             expect(actual).toBe(true);
         });
     });
+
+    describe("if a['fantasy-land/equals'](b) and b['fantasy-land/equals'](c), then a['fantasy-land/equals'](c) (transitivity)", () => {
+        it('should work for a(b), b(c), and a(c)', () => {
+            const setoid63a = setoid(63);
+            const setoid63b = setoid(63);
+            const setoid63c = setoid(63);
+
+            const actual1 = setoid63a['fantasy-land/equals'](setoid63b);
+            const actual2 = setoid63b['fantasy-land/equals'](setoid63c);
+            const actual3 = setoid63a['fantasy-land/equals'](setoid63c);
+
+            expect(actual1).toBe(true);
+            expect(actual2).toBe(true);
+            expect(actual3).toBe(true);
+        });
+    })
 });
