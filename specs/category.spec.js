@@ -16,4 +16,28 @@ describe('category', () => {
             expect(actual).toBe(true);
         });
     });
+
+    describe('a value which has a Category must provide a fantasy-land/id function on its type representative', () => {
+        it("a['fantasy-land/compose'](C['fantasy-land/id']()) is equivalent to a (right identity)", () => {
+            const category63 = category(63);
+            const category__ = category();
+
+            const composed = category63['fantasy-land/compose'](category__['fantasy-land/id']());
+
+            const actual = compareArrays(category63.value, composed.value);
+
+            expect(actual).toBe(true);
+        });
+
+        it("C['fantasy-land/id']()['fantasy-land/compose'](a) is equivalent to a (left identity)", () => {
+            const category63 = category(63);
+            const category__ = category();
+
+            const composed = category__['fantasy-land/id']()['fantasy-land/compose'](category63);
+
+            const actual = compareArrays(category63.value, composed.value);
+
+            expect(actual).toBe(true);
+        });
+    });
 });
