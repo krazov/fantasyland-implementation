@@ -22,7 +22,7 @@ describe('category', () => {
             const category63 = category(63);
             const category__ = category();
 
-            const composed = category63['fantasy-land/compose'](category__['fantasy-land/id']());
+            const composed = category63['fantasy-land/compose'](category['fantasy-land/id']());
 
             const actual = compareArrays(category63.value, composed.value);
 
@@ -33,7 +33,7 @@ describe('category', () => {
             const category63 = category(63);
             const category__ = category();
 
-            const composed = category__['fantasy-land/id']()['fantasy-land/compose'](category63);
+            const composed = category['fantasy-land/id']()['fantasy-land/compose'](category63);
 
             const actual = compareArrays(category63.value, composed.value);
 
